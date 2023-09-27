@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/locationWidget.dart';
 
 class enableLocationScreen extends StatelessWidget {
+  static const routeName = '/enableLocationScreen';
   const enableLocationScreen({super.key});
 
   @override

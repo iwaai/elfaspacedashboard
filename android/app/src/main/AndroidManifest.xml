@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
     package="com.example.elfa_main_dashboard">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
    <application
         android:label="elfa_main_dashboard"
         android:name="${applicationName}"
@@ -30,5 +34,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+            
     </application>
+    
 </manifest>

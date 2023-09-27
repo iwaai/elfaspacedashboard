@@ -1,11 +1,15 @@
 import 'package:elfa_main_dashboard/features/carsouelSlide/presentation/widgets/logInButton.dart';
+import 'package:elfa_main_dashboard/features/carsouelSlide/presentation/widgets/signupform.dart';
 import 'package:flutter/material.dart';
 import '../widgets/carsouelBody.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../provider/dotChanger.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/loginForm.dart';
+
 class CarsouelSlide extends StatelessWidget {
+  static const routeName = '/CarsouelSlideScreen';
   const CarsouelSlide({super.key});
 
   @override
@@ -90,14 +94,38 @@ class CarsouelSlide extends StatelessWidget {
             SizedBox(height: 8.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children: [
                 LoginInButton(
+                  heightt: 60,
+                  widthh: 110,
                   text: 'Log in',
-                  color: Color(0xffB409CE),
+                  color: const Color(0xffB409CE),
+                  ontap: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const logInForm();
+                        });
+                  },
                 ),
                 LoginInButton(
+                  heightt: 60,
+                  widthh: 110,
                   text: 'Sign Up',
                   color: Colors.grey,
+                  ontap: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.r),
+                                topRight: Radius.circular(20.r))),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const SignUpForm();
+                        });
+                  },
                 )
               ],
             ),
@@ -133,16 +161,4 @@ class CarsouelSlide extends StatelessWidget {
           ]),
         ));
   }
-}
-
-AnimatedContainer dot(int index, int currentPage) {
-  return AnimatedContainer(
-    margin: const EdgeInsets.only(right: 5),
-    height: 6,
-    width: currentPage == index ? 12 : 6,
-    decoration: BoxDecoration(
-        color: currentPage == index ? const Color(0xffB409CE) : Colors.grey,
-        borderRadius: BorderRadius.circular(3)),
-    duration: const Duration(milliseconds: 200),
-  );
 }

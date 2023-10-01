@@ -4,6 +4,7 @@ import 'package:elfa_main_dashboard/features/enableLoction_screen/presentation/p
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../presentation/provider/splashScreenAnimator.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
   void splashService(BuildContext context) {
@@ -15,5 +16,16 @@ class Utils {
         Navigator.pushNamed(context, enableLocationScreen.routeName);
       });
     });
+  }
+
+  void showMsg(String msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }

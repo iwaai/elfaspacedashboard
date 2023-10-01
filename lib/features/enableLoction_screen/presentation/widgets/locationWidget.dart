@@ -2,6 +2,7 @@ import 'package:elfa_main_dashboard/features/carsouelSlide/presentation/pages/ca
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';
+import '../../../../constants.dart';
 
 class LocationButton extends StatelessWidget {
   const LocationButton({super.key});
@@ -16,7 +17,11 @@ class LocationButton extends StatelessWidget {
           height: 60.sp,
           width: 310.sp,
           decoration: BoxDecoration(
-              color: const Color(0xffB409CE),
+              gradient: const LinearGradient(
+                colors: kgradientColors,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
               borderRadius: BorderRadius.circular(25)),
           child: Center(
               child: Text('Ok, I Understand',
@@ -28,6 +33,7 @@ class LocationButton extends StatelessWidget {
 Future<void> checkPermission(BuildContext context) async {
   final status = await Permission.location.request();
   if (status.isGranted) {
+    // ignore: use_build_context_synchronously
     Navigator.pushNamed(context, CarsouelSlide.routeName);
   }
 }

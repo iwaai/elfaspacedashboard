@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/locationWidget.dart';
+import 'package:elfa_main_dashboard/constants.dart';
 
 class enableLocationScreen extends StatelessWidget {
   static const routeName = '/enableLocationScreen';
@@ -9,35 +10,34 @@ class enableLocationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text('Enable Location',
-            style: TextStyle(
-                fontFamily: 'Monsterrat-Medium',
-                fontWeight: FontWeight.bold,
-                fontSize: 26.sp,
-                color: const Color(0xff000000))),
-        Text(
-            'ElfaSpace receives your location when you are \nusing the app to search for nearby businesses, \ngives you a better local experience, and more.',
-            style: TextStyle(
-                fontFamily: 'Monsterrat-Light',
-                fontSize: 14.sp,
-                color: const Color(0xff000000))),
-        Image.asset('assets/splashAssets/location_1.png'),
-        const LocationButton(),
-        SizedBox(
-          height: 40.h,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 0.h, horizontal: 8.w),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text('Enable Location',
+                style: headingTheme.copyWith(fontSize: 28.sp)),
+            SizedBox(
+              height: 5.h,
+            ),
+            Text(
+                'ElfaSpace receives your location when you are \nusing the app to search for nearby businesses, \ngives you a better local experience, and more.',
+                style: paraTheme.copyWith(fontSize: 16.sp)),
+            Image.asset('assets/splashAssets/location_1.png'),
+            SizedBox(
+              height: 30.h,
+            ),
+            const LocationButton(),
+            SizedBox(
+              height: 30.h,
+            ),
+            Text('You can adjust your location setting at any time',
+                style: paraTheme.copyWith(fontSize: 12.sp)),
+            Text('Learn More',
+                style:
+                    paraTheme.copyWith(fontSize: 12.sp, color: ksupportColor))
+          ]),
         ),
-        Text('You can adjust your location setting at any time',
-            style: TextStyle(
-                fontFamily: 'Monsterrat-Light',
-                fontSize: 10.sp,
-                color: const Color(0xff000000))),
-        Text('Learn More',
-            style: TextStyle(
-                fontFamily: 'Monsterrat-Light',
-                fontSize: 10.sp,
-                color: const Color(0xff3490DE)))
-      ]),
+      ),
     );
   }
 }

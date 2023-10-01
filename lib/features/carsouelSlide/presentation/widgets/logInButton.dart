@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../constants.dart';
 
 class LoginInButton extends StatelessWidget {
   final int heightt;
   final int widthh;
-  final Color color;
+  final Color? color;
   final String text;
   final VoidCallback ontap;
   const LoginInButton({
     super.key,
     required this.text,
-    required this.color,
+    this.color,
     required this.ontap,
     required this.heightt,
     required this.widthh,
@@ -24,10 +25,21 @@ class LoginInButton extends StatelessWidget {
           height: heightt.sp,
           width: widthh.sp,
           decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(15)),
+              gradient: color == null
+                  ? const LinearGradient(
+                      colors: kgradientColors,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )
+                  : const LinearGradient(
+                      colors: ksecondarygradientColor,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+              borderRadius: BorderRadius.circular(15)),
           child: Center(
               child: Text(text,
-                  style: TextStyle(color: Colors.white, fontSize: 15.sp)))),
+                  style: TextStyle(color: Colors.white, fontSize: 19.sp)))),
     );
   }
 }

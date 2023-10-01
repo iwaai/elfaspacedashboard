@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../provider/splashScreenAnimator.dart';
 import '../../domain/utilities/utils.dart';
+import '../../../../constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,13 +23,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xffFFFFFF),
+        backgroundColor: kBackgroundColor,
         body: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Stack(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Positioned(
                 top: 280.h,
@@ -39,7 +38,11 @@ class _SplashScreenState extends State<SplashScreen> {
                           Provider.of<SplashScreenAnimator>(context).isExpanded
                               ? BorderRadius.circular(0)
                               : BorderRadius.circular(95),
-                      color: const Color(0xffB409CE)),
+                      gradient: const LinearGradient(
+                        colors: kgradientColors,
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      )),
                   duration: const Duration(seconds: 1), // Animation duration
                   curve: Curves.easeInOut, // Animation curve
                   width: Provider.of<SplashScreenAnimator>(context).isExpanded
@@ -54,10 +57,6 @@ class _SplashScreenState extends State<SplashScreen> {
                           : Alignment.centerLeft,
                 ),
               ),
-
-              // SizedBox(
-              //   height: 220.h,
-              // ),
               Positioned(
                 top: 280.h,
                 left: 125.w,
@@ -69,9 +68,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
               ),
-
               Provider.of<SplashScreenAnimator>(context).isExpanded
-                  ? SizedBox()
+                  ? const SizedBox()
                   : Positioned(
                       top: 370.h,
                       left: 105.w,
@@ -82,7 +80,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               color: const Color(0xffB409CE))),
                     ),
               Provider.of<SplashScreenAnimator>(context).isExpanded
-                  ? SizedBox()
+                  ? const SizedBox()
                   : Positioned(
                       top: 410.h,
                       left: 35.w,
@@ -90,10 +88,10 @@ class _SplashScreenState extends State<SplashScreen> {
                           style: TextStyle(
                               fontFamily: 'Merienda',
                               fontSize: 15.sp,
-                              color: const Color(0xff000000))),
+                              color: kprimayTextColor)),
                     ),
               Provider.of<SplashScreenAnimator>(context).isExpanded
-                  ? SizedBox()
+                  ? const SizedBox()
                   : Positioned(
                       top: 410.h,
                       left: 35.w,

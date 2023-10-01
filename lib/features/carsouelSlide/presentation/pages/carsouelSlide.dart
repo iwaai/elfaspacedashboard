@@ -5,7 +5,7 @@ import '../widgets/carsouelBody.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../provider/dotChanger.dart';
 import 'package:provider/provider.dart';
-
+import '../../../../constants.dart';
 import '../widgets/loginForm.dart';
 
 class CarsouelSlide extends StatelessWidget {
@@ -18,13 +18,13 @@ class CarsouelSlide extends StatelessWidget {
       {
         "text1": "Find Best workspaces\nNear you",
         "text2":
-            "Search for exactly what you want and we will \nfind the best places nearby.",
+            "Search for exactly what you want and we will find the best places nearby.",
         "image": "assets/splashAssets/carsouelAssets/slide1.png"
       },
       {
-        "text1": "Top Schools Near you",
+        "text1": "Top Schools\nNear you",
         "text2":
-            "Find the best doctors in your area, get \nlocation of clinics or get consultant \nfrom top doctors from the comfort of your home.",
+            "Find the best doctors in your area, get location of clinics or get consultant from top doctors from the comfort of your home.",
         "image": "assets/splashAssets/carsouelAssets/slide2.png"
       },
       {
@@ -53,7 +53,7 @@ class CarsouelSlide extends StatelessWidget {
       },
     ];
     return Scaffold(
-        backgroundColor: const Color(0xffFFFFFF),
+        backgroundColor: kBackgroundColor,
         body: SafeArea(
           child: Column(children: [
             SizedBox(
@@ -88,8 +88,8 @@ class CarsouelSlide extends StatelessWidget {
             Divider(
               color: Colors.grey,
               thickness: 2,
-              indent: 50.w,
-              endIndent: 50.w,
+              indent: 20.w,
+              endIndent: 20.w,
             ),
             SizedBox(height: 8.h),
             Row(
@@ -97,9 +97,9 @@ class CarsouelSlide extends StatelessWidget {
               children: [
                 LoginInButton(
                   heightt: 60,
-                  widthh: 110,
+                  widthh: 150,
                   text: 'Log in',
-                  color: const Color(0xffB409CE),
+                  // color: const Color(0xffB409CE),
                   ontap: () {
                     showModalBottomSheet(
                         isScrollControlled: true,
@@ -111,7 +111,7 @@ class CarsouelSlide extends StatelessWidget {
                 ),
                 LoginInButton(
                   heightt: 60,
-                  widthh: 110,
+                  widthh: 150,
                   text: 'Sign Up',
                   color: Colors.grey,
                   ontap: () {
@@ -131,9 +131,7 @@ class CarsouelSlide extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             Text('Not looking for groceries?',
-                style: TextStyle(
-                    fontFamily: 'Monsterrat-Medium',
-                    fontWeight: FontWeight.bold,
+                style: headingTheme.copyWith(
                     fontSize: 12.sp,
                     color: const Color(0xff000000).withOpacity(0.5))),
             SizedBox(height: 8.h),
@@ -141,21 +139,16 @@ class CarsouelSlide extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Become a Partner',
-                    style: TextStyle(
-                        fontFamily: 'Monsterrat-Medium',
-                        fontWeight: FontWeight.bold,
+                    style: headingTheme.copyWith(
+                        fontSize: 12.sp, color: ksupportColor)),
+                Text('  |  ',
+                    style: headingTheme.copyWith(
                         fontSize: 12.sp,
-                        color: Colors.blue)),
-                const Text('|',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    )),
+                        color: kprimayTextColor,
+                        fontWeight: FontWeight.bold)),
                 Text('Become a Rider',
-                    style: TextStyle(
-                        fontFamily: 'Monsterrat-Medium',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12.sp,
-                        color: Colors.blue))
+                    style: headingTheme.copyWith(
+                        fontSize: 12.sp, color: ksupportColor))
               ],
             )
           ]),

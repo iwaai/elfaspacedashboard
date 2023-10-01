@@ -1,3 +1,4 @@
+import 'package:elfa_main_dashboard/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +27,7 @@ class CarsouelBody extends StatelessWidget {
           height: 250.h,
           width: 360.w,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(9)),
+              color: Colors.white, borderRadius: BorderRadius.circular(18)),
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -38,27 +39,20 @@ class CarsouelBody extends StatelessWidget {
                   child: Text(
                     text1,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Monsterrat-Medium',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 26.sp,
-                      color: const Color(0xff000000),
-                    ),
+                    style: headingTheme,
                   ),
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 8.h,
               ),
               SizedBox(
                 height: 80.h,
                 width: 270.w,
                 child: Text(text2,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'Monsterrat-Medium',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13.sp,
+                    style: headingTheme.copyWith(
+                        fontSize: 16.sp,
                         color: const Color(0xff000000).withOpacity(0.5))),
               ),
             ],

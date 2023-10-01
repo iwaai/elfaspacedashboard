@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import './features/splash_screen/presentation/pages/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'features/carsouelSlide/presentation/provider/circleIndicatorProvider.dart';
 import 'features/enableLoction_screen/presentation/pages/enable_location_screen.dart';
 import 'features/carsouelSlide/presentation/pages/carsouelSlide.dart';
 import 'package:firebase_core/firebase_core.dart';
+import './features/carsouelSlide/presentation/provider/errorProvider.dart';
+import './features/homeScreen/homeScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +25,8 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(builder: (context, child) {
       return MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (_) => CircleIndicatorProvider()),
+          ChangeNotifierProvider(create: (_) => errorProvider()),
           ChangeNotifierProvider(create: (_) => DotChanger()),
           ChangeNotifierProvider(create: (_) => SplashScreenAnimator())
         ],

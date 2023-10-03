@@ -44,5 +44,5 @@ app.*.map.json
 /android/app/release
 
 # Gradle related
-gradlew
-gradle.bat
+/andriod/gradlew
+/andriod/gradle.bat

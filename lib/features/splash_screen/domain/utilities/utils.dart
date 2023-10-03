@@ -8,7 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
   void splashService(BuildContext context) {
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(milliseconds: 200), () {
       Provider.of<SplashScreenAnimator>(context, listen: false)
           .triggerAnimation();
 

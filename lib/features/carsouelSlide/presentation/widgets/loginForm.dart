@@ -220,9 +220,7 @@ class _logInFormState extends State<logInForm>
                           ],
                         ),
                       ),
-                      Container(
-                        color: Colors.pink,
-                      )
+                      const SizedBox()
                     ],
                   ),
                 )

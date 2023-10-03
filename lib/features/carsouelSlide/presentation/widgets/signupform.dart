@@ -16,13 +16,13 @@ class SignUpForm extends StatefulWidget {
 class SignInFormState extends State<SignUpForm> {
   final _auth = authenticationMethods();
   final _formkey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumController = TextEditingController();
 
   @override
   void dispose() {
-    _nameController.dispose();
+    _passwordController.dispose();
     _emailController.dispose();
     _phoneNumController.dispose();
     super.dispose();
@@ -50,7 +50,7 @@ class SignInFormState extends State<SignUpForm> {
                   ),
                   CutsomTextField(
                     controller: _emailController,
-                    type: 'Username',
+                    type: 'Email',
                     icon: Icons.person_2,
                     uppterType: 'Username',
                     errorText: "Enter Name",
@@ -59,8 +59,8 @@ class SignInFormState extends State<SignUpForm> {
                     height: 15.h,
                   ),
                   CutsomTextField(
-                    controller: _nameController,
-                    type: 'Email Address',
+                    controller: _passwordController,
+                    type: 'Password',
                     icon: Icons.visibility,
                     uppterType: 'Email Address',
                     errorText: "Enter your email",
@@ -87,7 +87,7 @@ class SignInFormState extends State<SignUpForm> {
                         if (_formkey.currentState!.validate()) {
                           _auth.signUP(
                               email: _emailController.text.toString(),
-                              password: _nameController.text.toString(),
+                              password: _passwordController.text.toString(),
                               ctx: context,
                               phone: _phoneNumController.text.toString());
                         }

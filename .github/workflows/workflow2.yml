@@ -34,6 +34,6 @@ jobs:
           rclone config create GoogleDrive drive config_is_local false
 
           # Copy the APK to Google Drive
-          rclone copy ./build/app/outputs/apk/debug/ [GoogleDrive]:My Drive
+          rclone copy --max-name-length=255 ./build/app/outputs/apk/debug/ GoogleDrive:My Drive
         env:
           RCLONE_CONFIG: ${{ secrets.RCLONE_CONFIG }}

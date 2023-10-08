@@ -1,5 +1,6 @@
 import 'package:elfa_main_dashboard/features/carsouelSlide/presentation/provider/dotChanger.dart';
 import 'package:elfa_main_dashboard/features/splash_screen/presentation/provider/splashScreenAnimator.dart';
+import 'package:elfa_main_dashboard/features/work_spaces/presentation/pages/work_space.dart';
 import 'package:flutter/material.dart';
 import './features/splash_screen/presentation/pages/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,10 +32,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => SplashScreenAnimator())
         ],
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'eflaspace',
           theme: ThemeData(
               primarySwatch: Colors.blue, brightness: Brightness.light),
-          home: const SplashScreen(),
+          home: const WorkSpace(),
           routes: {
             enableLocationScreen.routeName: (ctx) =>
                 const enableLocationScreen(),

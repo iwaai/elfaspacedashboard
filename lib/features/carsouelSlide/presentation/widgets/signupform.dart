@@ -19,12 +19,13 @@ class SignInFormState extends State<SignUpForm> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumController = TextEditingController();
-
+  final TextEditingController _nameController = TextEditingController();
   @override
   void dispose() {
     _passwordController.dispose();
     _emailController.dispose();
     _phoneNumController.dispose();
+    _nameController.dispose();
     super.dispose();
   }
 
@@ -54,6 +55,18 @@ class SignInFormState extends State<SignUpForm> {
                     icon: Icons.person_2,
                     uppterType: 'Username',
                     errorText: "Enter Name",
+                    hidetext: false,
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CutsomTextField(
+                    controller: _nameController,
+                    type: 'Name',
+                    icon: Icons.emoji_people,
+                    uppterType: 'Username',
+                    errorText: "Enter Name",
+                    hidetext: false,
                   ),
                   SizedBox(
                     height: 15.h,
@@ -64,6 +77,7 @@ class SignInFormState extends State<SignUpForm> {
                     icon: Icons.visibility,
                     uppterType: 'Email Address',
                     errorText: "Enter your email",
+                    hidetext: true,
                   ),
                   SizedBox(
                     height: 15.h,
@@ -74,6 +88,7 @@ class SignInFormState extends State<SignUpForm> {
                     icon: Icons.phone_android,
                     uppterType: 'Phone Number',
                     errorText: "Enter Phone",
+                    hidetext: false,
                   ),
                   SizedBox(
                     height: 15.h,

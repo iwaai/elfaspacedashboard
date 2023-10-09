@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../features/work_spaces/presentation/pages/work_space.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,83 +11,116 @@ class HomeScreen extends StatelessWidget {
     List<Map<String, String>> gridtileData = [
       {
         "text": "workspaces",
-        "image": "assets/splashAssets/carsouelAssets/slide1.png"
+        "image": "assets/splashAssets/carsouelAssets/slide1.png",
+        "route": WorkSpace.routeName
       },
       {
         "text": "     Schools",
-        "image": "assets/splashAssets/carsouelAssets/slide2.png"
+        "image": "assets/splashAssets/carsouelAssets/slide2.png",
+        "route": WorkSpace.routeName
       },
       {
         "text": "   Local Food ",
-        "image": "assets/splashAssets/carsouelAssets/slide3.png"
+        "image": "assets/splashAssets/carsouelAssets/slide3.png",
+        "route": WorkSpace.routeName
       },
       {
         "text": "       Gyms",
-        "image": "assets/splashAssets/carsouelAssets/slide4.png"
+        "image": "assets/splashAssets/carsouelAssets/slide4.png",
+        "route": WorkSpace.routeName
       },
       {
         "text": "      Salons ",
-        "image": "assets/splashAssets/carsouelAssets/slide5.png"
+        "image": "assets/splashAssets/carsouelAssets/slide5.png",
+        "route": WorkSpace.routeName
       },
       {
         "text": "Marriage Halls",
-        "image": "assets/splashAssets/carsouelAssets/slide6.png"
+        "image": "assets/splashAssets/carsouelAssets/slide6.png",
+        "route": WorkSpace.routeName
       },
     ];
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          automaticallyImplyLeading: false,
-          title: ListTile(
-            title: Text(
-              'Welcome!',
-              style: headingTheme.copyWith(
-                  color: kPrimaryColor,
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w500),
-            ),
-            subtitle: Text('Memooma Khan',
-                style: paraTheme.copyWith(
-                    color: kPrimaryColor,
-                    fontSize: 30.sp,
-                    fontWeight: FontWeight.w700)),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        title: ListTile(
+          title: Text(
+            'Welcome!',
+            style: headingTheme.copyWith(
+                color: kPrimaryColor,
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w500),
           ),
-          actions: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: const LinearGradient(
-                  colors: kgradientColors,
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              width: 50.w,
-              child: const Icon(
-                Icons.menu,
-                // color: kPrimaryColor,
+          subtitle: Text('Memooma Khan',
+              style: paraTheme.copyWith(
+                  color: kPrimaryColor,
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.w700)),
+        ),
+        actions: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: const LinearGradient(
+                colors: kgradientColors,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
-          ],
-        ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-          child: Column(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Image.asset('assets/icons/elfaspace_logo.png'),
+            width: 50.w,
+            child: const Icon(
+              Icons.menu,
+              // color: kPrimaryColor,
+            ),
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Image.asset('assets/icons/elfaspace_logo.png'),
+              SizedBox(
+                width: 290.w,
+                child: TextField(
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(0),
+                    prefixIcon: const Icon(
+                      Icons.pin_drop_sharp,
+                      color: kSecondaryColor,
+                    ),
+                    hintText: 'Current location, city, province',
+                    hintStyle: paraTheme.copyWith(color: kSecondaryColor),
+                    filled: true,
+                    fillColor: kBackgroundColor,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+              )
+            ]),
+            SizedBox(
+              height: 10.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 SizedBox(
-                  width: 290.w,
+                  width: 270.w,
+                  height: 30.h,
                   child: TextField(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(0),
+                      contentPadding: const EdgeInsets.all(0),
                       prefixIcon: const Icon(
-                        Icons.pin_drop_sharp,
+                        Icons.search,
                         color: kSecondaryColor,
                       ),
-                      hintText: 'Current location, city, province',
+                      hintText: 'Search',
                       hintStyle: paraTheme.copyWith(color: kSecondaryColor),
                       filled: true,
                       fillColor: kBackgroundColor,
@@ -96,74 +130,47 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
-              ]),
-              SizedBox(
-                height: 10.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 270.w,
-                    height: 30.h,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.all(0),
-                        prefixIcon: const Icon(
-                          Icons.search,
-                          color: kSecondaryColor,
-                        ),
-                        hintText: 'Search',
-                        hintStyle: paraTheme.copyWith(color: kSecondaryColor),
-                        filled: true,
-                        fillColor: kBackgroundColor,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: const LinearGradient(
+                      colors: kgradientColors,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: const LinearGradient(
-                        colors: kgradientColors,
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                    ),
-                    height: 40.h,
-                    width: 50.w,
-                    child: const Icon(
-                      Icons.filter_alt_outlined,
-                      color: kBackgroundColor,
-                    ),
+                  height: 40.h,
+                  width: 50.w,
+                  child: const Icon(
+                    Icons.filter_alt_outlined,
+                    color: kBackgroundColor,
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
 //main bodysized
-              Expanded(
-                child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                      childAspectRatio: 2.2 / 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      maxCrossAxisExtent: 200,
-                    ),
-                    itemCount: gridtileData.length,
-                    itemBuilder: (_, index) {
-                      return moduelTile(gridtileData[index]['image'] as String,
-                          gridtileData[index]['text'] as String, () {});
-                    }),
-              )
-            ],
-          ),
+            Expanded(
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    childAspectRatio: 2.2 / 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    maxCrossAxisExtent: 200,
+                  ),
+                  itemCount: gridtileData.length,
+                  itemBuilder: (_, index) {
+                    return moduelTile(gridtileData[index]['image'] as String,
+                        gridtileData[index]['text'] as String, () {
+                      Navigator.pushNamed(
+                          context, gridtileData[index]['route'] as String);
+                    });
+                  }),
+            )
+          ],
         ),
       ),
     );

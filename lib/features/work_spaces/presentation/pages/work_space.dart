@@ -2,12 +2,12 @@ import 'package:elfa_main_dashboard/constants.dart';
 import 'package:elfa_main_dashboard/features/work_spaces/presentation/pages/favurite_panel.dart';
 import 'package:elfa_main_dashboard/features/work_spaces/presentation/pages/inbox_panel.dart';
 import 'package:elfa_main_dashboard/features/work_spaces/presentation/pages/profile_page.dart';
-import 'package:elfa_main_dashboard/features/work_spaces/presentation/widgets/space_tiles.dart';
 import 'package:elfa_main_dashboard/features/work_spaces/presentation/pages/work_space_home.dart';
 import 'package:flutter/material.dart';
 
 class WorkSpace extends StatefulWidget {
-  const WorkSpace({Key? key});
+  static const routeName = '/workSpace';
+  WorkSpace({Key? key});
 
   @override
   State<WorkSpace> createState() => _WorkSpaceState();

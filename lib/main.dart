@@ -10,7 +10,8 @@ import 'features/enableLoction_screen/presentation/pages/enable_location_screen.
 import 'features/carsouelSlide/presentation/pages/carsouelSlide.dart';
 import 'package:firebase_core/firebase_core.dart';
 import './features/carsouelSlide/presentation/provider/errorProvider.dart';
-import './features/homeScreen/homeScreen.dart';
+// import './features/homeScreen/homeScreen.dart';
+// import './features/work_spaces/presentation/pages/work_space.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
           routes: {
             enableLocationScreen.routeName: (ctx) =>
                 const enableLocationScreen(),
-            CarsouelSlide.routeName: (ctx) => const CarsouelSlide()
+            CarsouelSlide.routeName: (ctx) => const CarsouelSlide(),
+            WorkSpace.routeName: (ctx) => WorkSpace(),
           },
         ),
       );

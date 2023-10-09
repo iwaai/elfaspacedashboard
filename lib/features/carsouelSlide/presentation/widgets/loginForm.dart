@@ -47,10 +47,26 @@ class _logInFormState extends State<logInForm>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.arrow_back_ios)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    height: 30.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: const LinearGradient(
+                        colors: kgradientColors,
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                    width: 50.w,
+                    child: const Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      // color: kPrimaryColor,
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 8.h,
                 ),
@@ -91,6 +107,7 @@ class _logInFormState extends State<logInForm>
                               icon: Icons.person,
                               uppterType: 'Email',
                               errorText: 'Enter Valid Email',
+                              hidetext: false,
                             ),
                             SizedBox(
                               height: 15.h,
@@ -101,9 +118,10 @@ class _logInFormState extends State<logInForm>
                               icon: Icons.visibility,
                               uppterType: 'Password',
                               errorText: 'Enter your password',
+                              hidetext: true,
                             ),
                             SizedBox(
-                              height: 35.h,
+                              height: 10.h,
                             ),
                             Consumer<errorProvider>(
                               builder:
@@ -140,6 +158,9 @@ class _logInFormState extends State<logInForm>
                                 ));
                               },
                             ),
+                            SizedBox(
+                              height: 25.h,
+                            ),
                             LoginInButton(
                                 heightt: 60,
                                 widthh: 310,
@@ -175,7 +196,7 @@ class _logInFormState extends State<logInForm>
                               ],
                             ),
                             SizedBox(
-                              height: 30.h,
+                              height: 10.h,
                             ),
                             DiffLoginButton(
                               text: 'Continue with Google',
@@ -195,7 +216,7 @@ class _logInFormState extends State<logInForm>
                               image: 'assets/icons/facebook.png',
                             ),
                             SizedBox(
-                              height: 20.h,
+                              height: 10.h,
                             ),
                             Row(
                               children: [

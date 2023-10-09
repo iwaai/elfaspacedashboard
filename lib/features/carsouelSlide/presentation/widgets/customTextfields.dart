@@ -9,6 +9,7 @@ class CutsomTextField extends StatelessWidget {
   final IconData icon;
   final String uppterType;
   final String errorText;
+  final bool hidetext;
 
   const CutsomTextField(
       {super.key,
@@ -16,13 +17,14 @@ class CutsomTextField extends StatelessWidget {
       required this.type,
       required this.icon,
       required this.uppterType,
-      required this.errorText});
+      required this.errorText,
+      required this.hidetext});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      obscureText: true,
+      obscureText: hidetext,
       decoration: InputDecoration(
           hintText: type,
           labelText: type,

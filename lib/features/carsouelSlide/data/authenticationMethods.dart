@@ -19,6 +19,7 @@ class authenticationMethods {
     _auth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
+      Utils().showMsg('Signed In Successfully');
       Navigator.push(
           ctx, MaterialPageRoute(builder: (context) => const HomeScreen()));
       Provider.of<CircleIndicatorProvider>(ctx, listen: false)
@@ -39,7 +40,9 @@ class authenticationMethods {
     _auth
         .createUserWithEmailAndPassword(
             email: email.toString(), password: password.toString())
-        .then((value) => Navigator.push(
-            ctx, MaterialPageRoute(builder: (context) => const HomeScreen())));
+        .then((value) {
+      Utils().showMsg('Account Created');
+      Navigator.pop(ctx);
+    });
   }
 }

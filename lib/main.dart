@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           title: 'eflaspace',
           theme: ThemeData(
               primarySwatch: Colors.blue, brightness: Brightness.light),
-          home: const SplashScreen(),
+          home: SplashScreen(),
           routes: {
             enableLocationScreen.routeName: (ctx) =>
                 const enableLocationScreen(),

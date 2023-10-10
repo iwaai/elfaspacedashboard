@@ -8,13 +8,18 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
   void splashService(BuildContext context) {
-    Timer(const Duration(milliseconds: 200), () {
+    // Timer(const Duration(milliseconds: 200), () {
+    //   Provider.of<SplashScreenAnimator>(context, listen: false)
+    //       .triggerAnimation();
+
+    //   Timer(const Duration(milliseconds: 400), () {
+    //     Navigator.pushNamed(context, enableLocationScreen.routeName);
+    //   });
+    // });
+
+    Timer(const Duration(seconds: 4), () {
       Provider.of<SplashScreenAnimator>(context, listen: false)
           .triggerAnimation();
-
-      Timer(const Duration(milliseconds: 400), () {
-        Navigator.pushNamed(context, enableLocationScreen.routeName);
-      });
     });
   }
 
